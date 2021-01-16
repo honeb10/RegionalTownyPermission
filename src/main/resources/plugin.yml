@@ -1,0 +1,12 @@
+name: RegionalTownyPermission
+version: ${project.version}
+main: honeb1.regionaltownypermission.RegionalTownyPermission
+api-version: 1.16
+depend: [LuckPerms, Towny]
+
+commands:
+  regionalperm:
+    #サブコマンド: reload
+permissions:
+  rtperm.reload:
+    default: op

@@ -1,5 +1,7 @@
 TownPermissions:
-  - "extrahardmode.bypass.xyz"
+  - ["essentials.warp","RESIDENT"]
+  - ["extrahardmode.bypass.xyz","ALLY"]
+  - ["essentials.tp","OUTSIDER"]
 
 NationPermissions:
   - ""

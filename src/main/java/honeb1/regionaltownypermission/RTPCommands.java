@@ -39,6 +39,12 @@ public class RTPCommands implements CommandExecutor {
                 return true;
             }
         }
+        /*/テスト用
+        else{
+            sender.sendMessage(args[0]+" : "+args[1]+"->"
+                    +plugin.getServer().getPlayer(args[0]).hasPermission(args[1]));
+        }
+        //*/
         return false;
     }
 }

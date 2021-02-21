@@ -18,9 +18,17 @@ public final class RegionalTownyPermission extends JavaPlugin {
     LuckPerms luckPermsApi;
     TownyAPI townyApi;
     PlayerPosChecker posChecker;
-    List<PermissionNode> townNodes = new ArrayList<>();
-    List<PermissionNode> nationNodes = new ArrayList<>();
+    Map<PermissionNode, TownyRelation> townNodes = new HashMap<>();
+    Map<PermissionNode, TownyRelation> nationNodes = new HashMap<>();
     RTPConfiguration config;
+
+    public enum TownyRelation{
+        OUTSIDER((short) 1), ALLY((short) 2), RESIDENT((short) 3);
+        short weight;
+        TownyRelation(short weight){
+            this.weight = weight;
+        }
+    };
 
     @Override
     public void onEnable() {
@@ -36,7 +44,11 @@ public final class RegionalTownyPermission extends JavaPlugin {
         posChecker.run();
 
         config = new RTPConfiguration(this);
-        config.loadConfig();
+        try {
+            config.loadConfig();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
